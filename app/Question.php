@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
+
     protected $fillable = ['title','body'];
 
     public function user() {
@@ -20,7 +21,8 @@ class Question extends Model
 
     public function getUrlAttribute()
     {
-        return route("questions.show", $this->id);
+        // return route("questions.show", $this->id);
+        return route("questions.show", $this->slug);
     }
 
     //for created_date
@@ -38,5 +40,15 @@ class Question extends Model
             return "answered";
         }
         return "unanswered";
+    }
+
+    public function getBodyHtmlAttribute()
+    {
+        return $this->bodyHtml(); 
+    }
+
+    private function bodyHtml()
+    {
+        return \Parsedown::instance()->text($this->body);
     }
 }
