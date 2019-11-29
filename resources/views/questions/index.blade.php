@@ -20,8 +20,24 @@
 
                     @forelse ($questions as $question)
                         <div class="media">
+                            <div class="d-flex flex-column counters">
+                                <div class="vote">
+                                    <strong>{{ $question->votes_count }} {{ str_plural('vote', $question->votes_count) }}</strong>
+                                </div>
+                                <div class="status {{ $question->status }}">
+                                    <strong>{{ $question->answers_count }} {{ str_plural('answer', $question->answers_count) }}</strong>
+                                </div>
+                                <div class="view">
+                                    {{ $question->views ." ". str_plural('view', $question->views) }}
+                                </div>
+                            </div>
                             <div class="media-body">
-                                <h3 class="mt-0"> {{$question->title }} </h3>
+                                <h3 class="mt-0"><a href="{{ $question->url }}">{{$question->title }}</a></h3>
+                                <p class="lead">
+                                    Asked by
+                                    <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
+                                    <small class="text-muted">{{ $question->created_date }}</small>
+                                </p>
                                 {{ str_limit($question->body, $limit = 250, $end = '...') }}
                             </div>
                         </div>
