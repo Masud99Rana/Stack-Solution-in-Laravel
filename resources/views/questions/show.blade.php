@@ -18,7 +18,7 @@
                     <hr>
 
                      <div class="media">
-                        
+            
                         @include ('shared._vote', [
                             'model' => $question
                         ])
