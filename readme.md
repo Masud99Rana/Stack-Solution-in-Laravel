@@ -18,8 +18,8 @@
 [![Gmail][gmail-shield]][gmail-url]
 -->
 
-# Blog+Cms in laravel
-> **Note:** This repository contains the core code of an online question and answer system.(Stack Overflow clone)
+# Stack Solution
+> **Note:** This repository contains the core code of an online question and answer system. (Stack Overflow clone)
 
 [![Made with love by Masud Rana][madewith-shield]][linkedin-url] 
 [![status][status-shield]][linkedin-url] 
